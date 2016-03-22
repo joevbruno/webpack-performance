@@ -29,8 +29,8 @@ const config = {
   output: {
     path: outputDir,
     filename: `[name].${outputFileName}`,
-    publicPath, // not an actual path. stored in memory during hot loading
-    pathinfo: true, // log stuff to console
+    publicPath, 
+    pathinfo: true, 
     hotUpdateMainFilename: 'hot/[hash].hot-update.json'
   },
   resolve: {
@@ -45,7 +45,7 @@ const config = {
     noParse: [],
     loaders: [
       {
-        test: /\.jsx?$/, // A regexp to test the require path. accepts either js or jsx
+        test: /\.jsx?$/, 
         loader: 'babel-loader?cacheDirectory',
         exclude: [nodeModules],
         include: includes
