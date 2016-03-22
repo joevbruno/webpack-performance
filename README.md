@@ -18,7 +18,7 @@ Not all of these are reflected in the code in `BuildTools/webpack.config.babel.j
 
 **Results in this:**
 
-
+```
 973ms build modules       
 11ms seal
 74ms optimize
@@ -112,7 +112,7 @@ hot/638e3814cac259787fc6.hot-update.json  36 bytes          [emitted]
  [265] ./App/Components/ReduxDevTools/index.jsx 1.04 kB {0} [built]
        ... -> factory:9ms building:220ms dependencies:0ms
     + 252 hidden modules
-
+```
 Build times range from 1-3 seconds.Note that it is actually taking time to build these files. It should not. Most of the files are completely unrelated and unaffected by the changes made in the above file. This happen when running `webpack --watch` and when running webpack as hot middleware on a node or browsersync server. 
 
 Any ideas on how to make this stop, and instruct webpack to only change the file that actually changed?
