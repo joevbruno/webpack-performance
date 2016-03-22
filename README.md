@@ -8,6 +8,7 @@ To date, I have attempted to integrate various tips and tricks into the Webpack 
 + Webpack prefetch plguin
 + Common Chunks Plugin
 + cheap-module-eval-source-map
++ webpack analysis tool online
 
 Not all of these are reflected in the code in `BuildTools/webpack.config.babel.js`, but all have been tried. As result, the build’s performance has improved drastically; however, when I change one file, several unrelated files are also rebuild, but I cannot figure out why this happening. Here are further details:
 
