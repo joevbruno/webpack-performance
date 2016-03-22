@@ -24,28 +24,31 @@ const config = {
   devtool: sourceMaps,
   devServer,
   externals,
+  cache: true,
   contentBase,
   entry: entries,
   output: {
     path: outputDir,
     filename: `[name].${outputFileName}`,
-    publicPath, 
-    pathinfo: true, 
-    hotUpdateMainFilename: 'hot/[hash].hot-update.json'
+    publicPath,
+    pathinfo: true,
+    hotUpdateMainFilename: 'hot/[hash].hot-update.json',
+    hotUpdateChunkFilename: 'hot/[id].[hash].hot-update.js'
   },
   resolve: {
+    unsafeCache: true,
     extensions: ['', '.jsx', '.scss', '.js', '.json'],
-    alias: {
-      Controls: path.resolve('SharedComponents/Controls/Index.js'),
-      Utils: path.resolve('App/Utils/Index.js'),
-      MockedData: path.resolve('MockedData/Index.js')
+    alias: { // TODO: Should we be using resolve.root instead?  See janpaul123's comment: https://github.com/webpack/webpack/issues/1574#issuecomment-157520561
+      Controls: path.resolve(__dirname, '../SharedComponents/Controls/Index.js'),
+      Utils: path.resolve(__dirname, '../App/Utils/Index.js'),
+      MockedData: path.resolve(__dirname, '../MockedData/Index.js')
     }
   },
   module: {
     noParse: [],
     loaders: [
       {
-        test: /\.jsx?$/, 
+        test: /\.jsx?$/, // A regexp to test the require path. accepts either js or jsx
         loader: 'babel-loader?cacheDirectory',
         exclude: [nodeModules],
         include: includes

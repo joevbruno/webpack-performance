@@ -28,7 +28,7 @@ const externals = {
 
 const cssFileName = 'styles.css';
 const cssConfig = TURBO ? 'css?modules&importLoaders=1&localIdentName=[local]___[hash:base64:4]!' :
-'css?modules&sourceMap&importLoaders=2&localIdentName=[local]___[hash:base64:4]!';
+'css?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:4]!';
 const scssConfig = 'sass?sourceMap&outputStyle=expanded!';
 const toolboxConfig = 'toolbox';
 const stylesConfig = cssConfig + scssConfig + toolboxConfig;
@@ -55,9 +55,9 @@ const hotMiddleware = [
   'webpack-hot-middleware/client?reload=true', // reload if cannot hot reload
   // 'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
 ];
-const entries = [
-    path.resolve(__dirname, '../App/Components/Index.jsx')
-  ].concat(hotMiddleware);
+const entries = hotMiddleware.concat(
+  path.resolve(__dirname, '../App/Components/Index.jsx')
+);
 
 const resolveExt = ['', '.jsx', '.scss', '.js', '.json'];
 
