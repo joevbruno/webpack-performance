@@ -5,6 +5,7 @@ To date, I have attempted to integrate various tips and tricks into the Webpack 
 + cache= true + resolve.unsafeCache
 + happy pack plugin
 + Webpack DLL plugin
++ Webpack prefetch plguin
 + Common Chunks Plugin
 + cheap-module-eval-source-map
 
